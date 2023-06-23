@@ -2,9 +2,11 @@ const httpServer = require('http').createServer()
 const io = require("socket.io")(httpServer, {
     allowEIO3: true,
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-        credentials: false
+        origin: (origin, callback) => {
+            callback(null, origin);
+          },
+          methods: ["GET", "POST"],
+          credentials: true
     }
 })
 httpServer.listen(3000, function () {
