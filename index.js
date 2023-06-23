@@ -4,7 +4,7 @@ const io = require("socket.io")(httpServer, {
     cors: {
         origin: "*",
         methods: ["GET", "POST"],
-        credentials: true
+        credentials: false
     }
 })
 httpServer.listen(3000, function () {
